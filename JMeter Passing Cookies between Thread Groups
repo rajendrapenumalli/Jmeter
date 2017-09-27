@@ -1,0 +1,45 @@
+Passing Cookies between Thread Groups:
+
+Hint: 
+      1. JMeter Variable has limited scope (Limited Current Thread Group).
+      2. Jmeter Property has Global scope i.e once we set or cerate a property that can be accessed from anywhere or any thread group or request.   
+
+Setting a property:
+       props.put("Key","Value");  // Both Ket and Values must Of String Type.
+
+
+    //Following Snippet will list all the Cookies in the Response: 
+
+      import org.apache.jmeter.protocol.http.control.CookieManager;
+      
+      CookieManager manager = ctx.getCurrentSampler().getProperty("HTTPSampler.cookie_manager").getObjectValue();
+      props.put("cookiecount",String.valueOf(manager.getCookieCount()));
+
+      for (int cookieIndex=0;cookieIndex<manager.getCookieCount();cookieIndex++){
+           props.put("cookie_" + cookieIndex, manager.get(cookieIndex).getName());      // code to convert Cookie information to JMeter Properties
+           log.info ""cookie_" + cookieIndex, manager.get(cookieIndex).getName();
+      }
+      
+ 
+ Note Ways to View Properties: 
+        1. Listed cookies can se seen from Jmeter log console(Log View Must be enabled)
+        2. From Workbench>>Property View. 
+        
+        
+        
+ After obtaining the Cookies and  stored as a JMeter property,  one can reconstruct cookies in another thread group.
+ 
+    import org.apache.jmeter.protocol.http.control.CookieManager;
+    import org.apache.jmeter.protocol.http.control.Cookie;
+    import org.apache.jmeter.testelement.property.JMeterProperty;
+
+    CookieManager manager = ctx.getCurrentSampler().getProperty("HTTPSampler.cookie_manager").getObjectValue();
+    int count = Integer.parseInt(props.getProperty("cookiecount"));
+    
+    for (int i=0;i<count;i++) {
+           Cookie cookie = new Cookie(props.getProperty("cookie_name"+i),props.getProperty("cookie_value"+i), props.getProperty("cookie_domain"+i),props.getProperty("cookie_path"+i), Boolean.parseBoolean(props.getProperty("cookie_secure"+i)), Long.parseLong(props.getProperty("cookie_expires"+i)));
+           manager.add(cookie);
+    }
+    JMeterProperty cookieprop = ctx.getCurrentSampler().getProperty("HTTPSampler.cookie_manager");
+    cookieprop.setObjectValue(manager);
+    ctx.getCurrentSampler().setProperty(myprop);
