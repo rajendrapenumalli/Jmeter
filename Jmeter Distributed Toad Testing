@@ -1,0 +1,9 @@
+Prerequistes:
+      Jmeter Master Machine
+      Jmeter Slave Machine
+
+Both Jmeter Master Machine and Salve machine Must have:
+      Jmeter Version
+      same Jdk Version
+      in Same Network IP Range
+  
