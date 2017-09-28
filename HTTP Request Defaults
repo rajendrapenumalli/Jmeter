@@ -1,0 +1,2 @@
+Use  config element  HTTP Request Defaults to maintain all common config data.
+This makes easy in future if any changes are required.
