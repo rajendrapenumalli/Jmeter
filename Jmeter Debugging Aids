@@ -1,1 +1,14 @@
 
+Jmeter Proviides following debugging features to troubleshhot the scripts while development.
+
+1. Jmeter Menu Bar>>Options>> logviewver
+      Jmeter Menu Bar>>Options>> loglevel
+              Allows to see the errors/warnings/Console output messages while run time   
+2. ThreadGroup >> Right Click >>Add>>Sampler>> Debug Sampler
+              Allows to see sample level 
+                      Jmeter Properties
+                      Jmeter Variables
+              Note: Along with this we also need to use View Results Tree Listener to see the request and response content and data 
+3. Workbench>>Non Test Elements>> Property Dsiplay
+4. View Results Tree Listener to see the request and response content and data
+5. 
