@@ -1,0 +1,8 @@
+
+Running Jmeter in Headless Mode from Command line
+
+    jmeter-3.2/bin/jmeter -n -t testcases/TestHello.jmx -l log.jtl
+    
+
+    
+    
