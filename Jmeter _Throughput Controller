@@ -1,0 +1,10 @@
+Jmeter :Throughput Controller
+
+1. How to make our samplers run with defined percentage execution. (Distributing the load)
+2. How to use Throughput Controller to achieve this.
+
+Threads (virtual users) - 100
+      WebApplication
+      WebPage A - 20% - 20
+      WebPage B - 30% - 30
+      WebPage C - 50% - 50
