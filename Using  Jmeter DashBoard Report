@@ -1,0 +1,4 @@
+Using  Jmeter DashBoard Report
+	1. Run Jmeter From Command Line
+	2. Generate Report in CSV format (use configuration to get this)
+	3. JMeter_HOME/bin/reportgenerator
