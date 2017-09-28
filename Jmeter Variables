@@ -1,0 +1,8 @@
+
+Variable : A container that can store a value which can be referenced 
+           by any other element within the thread. (local to a thread)
+           
+Syntax : ${variableName}
+
+Note: User Definied Variables can be accesses from any thread group
+      User defined varibales cannot be updated , only can be defined before starting the test
