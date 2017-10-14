@@ -1,1 +1,5 @@
 
+JMeter Thread Group
+
+Evevery JMeter should have atleast one thread group.
+Thread Group Holds the Samples,PRE/Post Processors 
