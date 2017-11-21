@@ -1,1 +1,22 @@
+#Snippet-1
+Snippet Functionality: Print Falied Asserion Results in a File for all Samples in a Thread Groovy Using Groovy Script
+
+Adding Groovy Snippet Code:
+Add a custom Groovy assertion by using 
+" Right click on the Thread Group -> Add -> Assertions -> JSR223 Assertion " and choose "groovy" as "Language" on the JSR223 and Add Following Code:
+
+
+Groovy Snippet Code
+
+import org.apache.jmeter.services.FileServer
+
+FileServer path = FileServer.getFileServer().getBaseDir();
+new File(path+File.seperator+"logs"+File.seperator+"failed_response_${TestStartTime}.logs")
+SampeResult.getAssertResults().each{assertion ->
+file << Thread.currentThread().getName()+":"+":Assertion Falied For Response:"+prev.getResponseDataAsString()+"\n"
+}
+
+References:
+
+FileServer JDoc:http://www.javadocexamples.com/org/apache/jmeter/services/org.apache.jmeter.services.FileServer.html
 
