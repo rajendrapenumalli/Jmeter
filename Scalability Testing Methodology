@@ -8,3 +8,7 @@ Scalability Testing Methodology
 6.Once you know the culprit, fix the problem
 7.Now run the tests again, and increase load till throughput becomes constant.
 8..Once you get your target throughput and an acceptable 95 percentile response time, you are done
+
+
+Reference:
+https://hashedin.com/2017/06/08/scalability-testing-using-jmeter/
