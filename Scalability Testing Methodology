@@ -1,0 +1,10 @@
+Scalability Testing Methodology
+
+1.Run tests for 10 threads, 20 threads, …. 100 threads. Each run must be at least 10 minutes, and you must pass little’s law described above
+2.Throughput must increase in proportion to the number of threads. Response time must not increase as the number of threads increases
+3.If the throughput does not increase - STOP and Investigate
+4.Look at graphs for client network bandwidth, server network, I/O, CPU, Memory, database graphs, graphs for redis/cache, number of workers configured on web servers, etc.
+5.You will find that one of these components is slowing down the entire system. Find the culprit
+6.Once you know the culprit, fix the problem
+7.Now run the tests again, and increase load till throughput becomes constant.
+8..Once you get your target throughput and an acceptable 95 percentile response time, you are done
