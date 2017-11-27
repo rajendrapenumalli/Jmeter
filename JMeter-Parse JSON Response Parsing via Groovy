@@ -1,0 +1,22 @@
+Post Processor Groovy Script
+
+    import groovy.json.JsonSlurper; 
+    def response = prev.getResponseDataAsString();
+    def jsonSlurper = new JsonSlurper()
+    def objJSON= jsonSlurper.parseText(response)
+    log.info "------------>>"+objJSON.userId
+
+
+Sample Htt GET Request: 
+
+	  GET https://jsonplaceholder.typicode.com/posts/1
+
+Response:
+
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+    }
+
