@@ -1,0 +1,14 @@
+JMeter  Plugin Manager
+
+1. Download Jmeter Plugin Manager from following link: 
+	    https://jmeter-plugins.org/downloads/all/
+
+2. Copy : jmeter-plugins-manager-0.16.jar to following path(\lib\ext):
+	    D:\JmeterTool\apache-jmeter-3.3\lib\ext
+
+3. Start JMeter and go to "Options" menu to access the Plugins Manager.
+
+
+References:
+  https://jmeter-plugins.org/downloads/all/
+  https://jmeter-plugins.org/wiki/PluginsManager/
