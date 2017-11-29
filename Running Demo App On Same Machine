@@ -1,0 +1,9 @@
+Running the Demo App
+To run the demo application on your own computer, you will need:
+
+An operating system compatible with Docker, See Docker Installation for more information,
+    https://docs.docker.com/engine/installation/
+
+Docker:https://www.docker.com/
+
+To run the JPetstore demo application, simply execute the command-line docker run -d -p 8080:8080 jloisel/jpetstore6.
