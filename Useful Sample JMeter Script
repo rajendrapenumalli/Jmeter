@@ -1,0 +1,171 @@
+Useful Collection of sample JSR223 Jmeter Scripts:
+1. Log a Message
+    log.info("This is the log for INFOR level");
+    log.warn("This is the log for WARNING level");
+    log.error("This is the log for ERROR level");
+    
+2. Print message in Jmeter Server Console
+    OUT.println("INPUT MESSAGE HERE");
+
+3. Manipulate a Variable
+    vars.get("VARIABLE_NAME");
+    vars.put("VARIABLE_NAME","VALUE");
+
+    String my_var = vars.get("MY_VARIABLE");
+    log.info("The value of my_var is " + my_var);
+
+4. Increment an Integer
+
+    int my_number = vars.get("MY_NUMBER").toInteger();
+    int new_number = 3;
+    int add = my_number + new_number;
+    vars.put("MY_NUMBER", add.toString());
+
+
+5.  Read Write Properties
+
+      props.get("PROPERTY_NAME");
+      props.put("PROPERTY_NAME", "VALUE");
+      //update the existing property
+      props.put("jmeter.version","3.1")
+
+
+6.  Groovy Multiply Function
+
+      def mutiplyTwoNumber = { a,b -> a * b};
+      //put the function in to JMeter property
+      props.put("MUTIPLY_TWO_NUMBER", mutiplyTwoNumber);
+
+7.  Replace String in a Variable
+
+    // Replaces "\/" by "/"
+    vars.put("variable",vars.get("variable").replace("\\/","/"));
+
+8. Next Working Day
+
+    import java.text.DateFormat;
+    import java.text.SimpleDateFormat;
+    import java.util.Calendar;
+    import java.util.Date;
+
+    public boolean isWorkingDay(Date date, Calendar calendar) {
+      // set calendar time with given date
+      calendar.setTime(date);
+      int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+      // check if it is Saturday(day=7) or Sunday(day=1)
+      if ((dayOfWeek ==  7) || (dayOfWeek == 1)) {
+        return false;
+      }
+      return true;  
+    }
+
+    Calendar c = Calendar.getInstance();
+    Date now = new Date();
+    c.setTime(now);
+
+    c.add(Calendar.DAY_OF_WEEK, 1);
+    while(!isWorkingDay(c.getTime(), c)) {
+      c.add(Calendar.DAY_OF_WEEK, 1);
+    }
+    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    vars.put("nextworkingday", df.format(c.getTime()));
+
+9. Simulate Pacing
+
+import com.google.common.base.Stopwatch;
+vars.putObject("watch",Stopwatch.createStarted());
+
+    import com.google.common.base.Stopwatch;
+    import java.util.Map;
+
+    Map env = System.getenv();
+
+    Stopwatch watch = vars.getObject("watch");
+    long elapsed = watch.elapsed(java.util.concurrent.TimeUnit.MILLISECONDS);
+    long pacing = Long.parseLong(vars.get("pacing"));
+
+    long sleep = pacing - elapsed;
+    Thread.sleep(sleep);
+    
+    
+ 10. Log Sampler Info
+ 
+    log.info( "The Sample Label is : " + SampleResult.getSampleLabel() );
+    log.info( "The Start Time in miliseconds is : " + SampleResult.getStartTime() );
+    log.info( "The Response Code is : " + SampleResult.getResponseCode() );
+    log.info( "The Response Message is : " + SampleResult.getResponseMessage() )
+    
+    
+11. Modifying Current SampleResult
+
+    The previous sample result can easily be modified by JSR223 scripts.
+    SampleResult.setSampleLabel("This test is modified by JSR223 script");
+    def start = System.currentTimeMillis(); //return current time in milliseconds
+    SampleResult.setStartTime(start); // set StartTime
+    log.info("Start Time should be: " + (new Date(start)).toString()); //print the start time in Date format
+
+    SampleResult.setResponseCode("201");
+    SampleResult.setResponseMessage("This is message returned from JSR223 script");
+    SampleResult.setResponseData("You will see this sentence in Response Data tab", "UTF-8");
+    
+12. Read Previous SampleResult
+
+      def end_time = prev.getEndTime()
+      log.info("End Time is: " + (new Date(end_time).toString()));
+      log.info("Response Time is: " + prev.getTime().toString());
+      log.info("Connect Time is: " + prev.getConnectTime().toString());
+      log.info("Latency is: " + prev.getLatency().toString());
+      log.info("Size in bytes is: " + prev.getBytesAsLong().toString());
+      log.info("URL is: " + prev.getURL());
+      log.info("The result is passed: " + prev.isSuccessful().toString());
+      log.info("Headers are: " + prev.getResponseHeaders());
+
+13. Modify Previous SampleResult
+
+    def response_time = prev.getTime().toInteger();
+
+    def expected_response_time = 500;
+
+    if (response_time > expected_response_time) {
+         prev.setSampleLabel("The response time is too long");
+         prev.setSuccessful(false);
+         prev.setResponseCode("500");
+         prev.setResponseMessage("The expected response time is : " + expected_response_time + "ms but it took: " + response_time + "ms");
+        }
+
+14.Modify HTTP Request
+
+      Define the following script as an Http Sampler pre-processor.
+
+      sampler.setDomain("jmetervn.wordpress.com");
+      sampler.setProtocol("HTTPS");
+      sampler.setMethod("GET");
+      sampler.setPort(443);
+      
+15. JMeter Context
+
+      The following script demonstrates the usage of the ctx variable.
+
+      log.info("Current Sampler class is: " + ctx.getCurrentSampler());
+      log.info("JMeter Engine class is: " + ctx.getEngine());
+
+
+      log.info("Previous Response Message is: " + ctx.getPreviousResult().getResponseMessage());
+      log.info("Previous Response Code is: " + ctx.getPreviousResult().getResponseCode());
+      log.info("Previous Response URL is: " + ctx.getPreviousResult().getURL());
+      log.info("Previous Response Time is: " + ctx.getPreviousResult().getTime());
+
+
+      log.info("Previous Domain is: " + ctx.getPreviousSampler().getDomain());
+      log.info("Previous Protocol is: " + ctx.getPreviousSampler().getProtocol());
+      log.info("Previous Port is: " + ctx.getPreviousSampler().getPort());
+      log.info("Previous Method is: " + ctx.getPreviousSampler().getMethod());
+
+
+      log.info("Thread Name is: " + ctx.getThread().getThreadName());
+      log.info("Thread Start Time is: " + ctx.getThread().getStartTime());
+      log.info("Thread End Time is: " + ctx.getThread().getEndTime());
+
+      log.info("Start Next Thread Loop on Error: " + ctx.getThreadGroup().getOnErrorStartNextLoop());
+      log.info("Stop Test on Error: " + ctx.getThreadGroup().getOnErrorStopTest());
+
