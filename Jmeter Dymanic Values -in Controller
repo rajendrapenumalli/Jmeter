@@ -1,0 +1,10 @@
+in JSR223 Groovy Script Pre/post Processign Element:
+          int totalElements= Integer.parseInt(vars.get("totalElements"));
+          vars.put("totalElements", String.valueOf(totalElements));
+          
+Then loop Controller/While Loop controller: use as below:
+${__javaScript("${totalElements}")}
+
+
+
+
