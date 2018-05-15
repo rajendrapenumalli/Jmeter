@@ -1,0 +1,21 @@
+
+
+
+Add JSR223 PostProcessor as a chid of the HTTP Request sampler
+Put the following code into "Script" area:
+
+import groovy.json.JsonSlurper
+def request = new JsonSlurper().parseText(sampler.getArguments().getArgument(0).getValue())
+def email = request.email
+def password = request.password
+new File('test.csv') << email + ',' + password + System.getProperty('line.separator')
+
+Once you execute your test the JSR223 PostProcessor will add the values of email and password objects into test.csv file 
+(normally it should reside in "bin" folder of your JMeter installation)
+
+
+
+References:
+Groovy: Parsing and Producing JSON
+Groovy Goodness: Working with Files
+Apache Groovy - Why and How You Should Use It
