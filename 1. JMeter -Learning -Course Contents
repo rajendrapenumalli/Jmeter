@@ -306,3 +306,9 @@ Client Side HW Requirements (load generator):
  Approvals -for Performace Testing 
  Preserving Test Results and Reports for Future Reference
  
+ 
+ Understandign Mesaage Paylaod Formats:
+ 1. JSON    Json Path
+ 2. XML     XPath
+ 
+ 
