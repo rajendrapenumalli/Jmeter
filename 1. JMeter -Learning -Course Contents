@@ -285,3 +285,29 @@ Jmeter CI Integration
    1. Scheduling  From Jenkins 
    
 
+Server Side Configuration (application under test)-T-Shirt Size:
+    CPU: 4x Xeon L5520 @ 2.27 GHz
+    RAM: 8GB
+ OS-Server Info:
+    OS: Microsoft Windows Server 2008 R2 x64
+    Application Server: IIS 7.5.7600.16385
+
+Client Side HW Requirements (load generator):
+    CPU: 4x Xeon L5520 @ 2.27 GHz
+    RAM: 4GB
+    OS: Ubuntu Server 12.04 64-bit
+    
+ Performance Test Deliverables
+     1. Reports
+     2. Metrics
+     3. Graphs
+ 
+ Performance Test Requirements:
+ 
+ 
+ Approvals -for Performace Testing 
+ 
+ 
+ 
+ 
+ 
