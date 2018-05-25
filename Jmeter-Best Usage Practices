@@ -1,0 +1,7 @@
+
+              1. Use JMeter listeners for debugging purposes only.
+              2. Run JMeter performance tests in non-GUI mode.
+              3. Increase JMeter heap space to generate a larger load.
+              4. Use LAN instead of a Wi-Fi connection when running a load test.
+              5. Always use latest Stale Jmeter version
+           
