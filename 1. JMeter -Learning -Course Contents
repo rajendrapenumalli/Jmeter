@@ -1,0 +1,255 @@
+
+
+Introduction to Class
+
+    Participants
+    Familiarization with course material
+    Familiarization with the protocols and timings
+    Expectation setting and clarifications
+
+Introduction to Performance Testing
+
+    Technical Jargon
+    Functional/Regression Testing
+    Load Testing
+    Ramp-up
+    Threads/Users
+    Business Process
+    Performance Testing Tools
+    Performance Testing requirements/needs
+    Performance Test Life Cycle
+    Performance Test Planning
+    Load Modeling
+    Scripting
+    Bench marking performance criteria
+    Loading the test
+     Reports generation and Analysis
+    Bottlenecks identification
+    Recommendations and Implementation of the same
+
+Introduction to Jmeter
+
+    JMeter installation
+    Configuring Classpath
+    Launching Jmeter Interface
+    Get to know Jmeter Features
+    Overview of Jmeter Test Elements
+    Create a basic Test Plan to test websites
+    Executing tests with different settings
+    Reading Results of Test Plan
+    Adding and Removing Elements
+    Loading and Saving Elements
+
+Thread Group
+
+    Detailed look at Elements of Test Plan
+    Thread Group Introduction
+    Thread group – control panel
+    Single Thread Group test
+    Multiple Thread Group test
+    SetUp Thread Group
+    TearDown Thread Group
+    Test plan and Thread Group interaction
+    Custom Thread Groups
+    How to add external plugins for Jmeter
+
+Samplers
+
+    HTTP Request
+    FTP Request
+    JUnit Sampler
+    TCP Sampler
+    OS Process Sampler
+    JDBC Sampler
+    Test Action
+    SOAP/XML-RPC Sampler
+    Web Services Sampler
+    Debug Sampler
+
+Logic Controllers
+
+    Once Only Controller
+    Random Controller
+    Random Order Controller
+    Loop Controller
+    Interleave Controller
+    Recording Controller
+    Simple Controller
+    Throughput Controller
+    Runtime Controller
+    IF Controller
+    While Controller
+    Switch Controller
+    Module Controller
+    Include Controller
+    For Each Controller
+     Transaction Controller
+
+Pre and Post Processors
+
+    Pre and Post Processors
+    HTML link Parser
+    HTTP URL rewriting modifier
+    User Parameters
+    Regular Expression Extractor
+    XPath Extractor
+    Result status handler
+    Debug Post Processor
+    Assertion results listener
+    HTTP Cookie Manager
+
+Timers
+
+    Constant Timer
+    Gaussian Random Timer
+    Uniform Random Timer
+    Poisson Random Timer
+    Synchronizing Timer
+    Constant Throughtput Timer
+
+Post Training Assessments:
+
+Assertions
+
+    Why Assertions
+    Duration Assertion
+    Size Assertion
+    XML Assertion
+    XML Schema Assertion
+    HTML Assertion
+    Response Assertion
+    XPath Assertion
+    Compare Assertion
+
+Configuration Elements
+
+    Config Elements Introduction
+    Counter
+    Random Variable
+    FTP Request Defaults
+    Login Config Element
+    HTTP Request Defaults
+    Java request Defaults
+    User Defined Variables – UDV
+    CSV Data Set Config
+    HTTP Authrization Manager
+    HTTP Cookie Manager
+
+Listeners
+
+    Introduction to Listeners
+    Aggregate Report
+    Aggregate Graph
+    View Results Tree
+    View Results in Table
+    Summary Report
+    Simple Data Writer
+    Graph Results
+    Save Responses to file
+    Generate summary result
+    Response time graph
+    Monitor results
+    Spline Visualizer
+    Mailer Visualizer
+    Distribution Graph (Alpha)
+    Assertion Results
+    Comparison assertion results
+
+Jmeter Functions
+
+    threadNum
+    __intSum
+    __longSum
+    __doubleSum
+    __StringFromFile
+    __javaScript
+    __BeanShell
+    __machineIP
+    __machineName
+    __TestPlanName
+    __log
+    __Random
+    __RandomString
+    __property
+    __P
+    __setProperty
+    __time
+    __samplerName
+    __V
+    __FileToString
+    Custom Functions / User defined
+
+Bean Shell Scripting
+
+    Introduction to BeanShell Scripting
+    Setting upBeanShell
+    Eclipse IDE
+    BeanShell Scripting Syntax
+    BeanShell Samplers
+    BeanShell Pre-processor
+    BeanShell post-processor
+    BeanShell Assertion
+    BeanShell Timer
+    BeanShell Listener
+
+Testing Database with Jmeter
+    Database Testing with JMeter
+    Setting up jar files
+    JDBC with Oracle
+    Select Statement
+    Update Statement
+    Insert Statement
+    Delete Statement
+    Create Statement
+    Using parameterization
+
+Testing Webservices with Jmeter
+    Introduction to Webservices
+    WSDL
+    UDDI
+    SOAP Message (Request & Response)
+    Test Plan for Webservice
+    WebService/SOAP Sampler
+    SOAP UI Tool
+    Freely exposed Webservice over Internet – Example
+    Set up Xampp and MySQL DB
+
+Jmeter in Non-Gui and Distributed Mode
+    Test Execution
+    Executing tests in Non Gui mode
+    Editing a test plan in a text/XML editor
+    Jmeter test results in Non-gui mode
+    GUI support to view reports
+    Aggregate Report – load jtl file
+    Executing tests in Distributed mode
+    Configure the nodes
+    Start the servers
+    Configuring Jmeter Properties File
+    Distributed execution from a GUI client
+    Distributed execution from a NON-GUI
+
+Report Analysis and Monitoring Resources
+    Statistics available from JMeter
+    Average, Median, Deviation
+    Throughput, 90 Percentile
+    Server Monitoring using jmeter plugin
+    Resource Utilization Monitoring
+    Perform metric collector listener
+    ServerAgent batch file
+    Blazemeter Plugin
+    Server metrics such as CPU & Memory usage
+    Monitoring and analyzing CPU resources
+    Monitoring memory utilization
+    Driving JMeter tests with Ant
+
+Testing Restful Webservices
+    Restful Webservices
+    SOAP – WSDL, XML SOAP Message
+    REST based API
+    HTTP Methods- GET, POST, DELETE, PUT
+    MIME TYPES – JSON, XML
+    CRUD Operations from Jmeter
+    Sending Post Request from Jmeter
+    Sending JSON Payload
+    Asserting JSON Response
+
