@@ -1,1 +1,37 @@
 
+Snippet to Work Response:
+Response Body
+Response Headers
+Response Code
+
+
+### Loading File 
+    import org.apache.jmeter.services.FileServer
+    def inputPath = FileServer.getFileServer().getBaseDir() + "\\data\\assertion.txt"
+    File inputFile = new File(inputPath)
+    if (inputFile.exists()) {
+      log.info("File " + inputPath + " exists")
+      vars.put("assertionValue", inputFile.text)
+    }
+
+### Loading File and Using as Data Source:
+
+      import org.apache.jmeter.services.FileServer
+      def inputPath = FileServer.getFileServer().getBaseDir() + "\\data\\transactions.csv"
+      def outputPath = FileServer.getFileServer().getBaseDir() + "\\data\\transactionsToProcess.csv"
+      File inputFile = new File(inputPath)
+      def month = vars.get("month")
+      def year = vars.get("year")
+      def words
+      def date
+      def line
+      if (inputFile.exists()) {
+        log.info("File " + inputPath + " exists")
+        File outputFile = new File(outputPath) 
+        inputFile.eachLine { line ->
+          words = line.split(",")
+          date = words[0] 
+          if (date.endsWith(month + "/" + year)) 		
+            outputFile << line + "\n "		  
+          }
+      }
