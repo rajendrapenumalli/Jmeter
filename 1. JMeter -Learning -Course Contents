@@ -236,4 +236,52 @@
     18.7.	    Sending Post Request from Jmeter
     18.8.	    Sending JSON Payload
     18.9.	    Asserting JSON Response
+    
+Jorgons-Jmeter 
+    Functional/Regression Testing
+    Threads/Users
+    ThreadGroup
+    Rampup Time
+    Loops
+    Listeners
+    Load Modeling
+    Load Testing
+    Samplers
+    Timers
+    Counters
+    Timeouts
+    Assertions
+    Controllers
+    Config Elements
+    Non Test Elements
+    Preprocessors-Postprocessors
+    Regex Pattrens-Perl5Matcher
+    Debugging Samplers
+    Business Process
+    Performance Testing Tools
+    Performance Testing requirements/needs
+    Performance Test Life Cycle
+    Performance Test Planning
+    Scripting
+    Bench marking performance criteria
+    Loading the test
+    Reports generation and Analysis
+    Report Visualisers
+    Bottlenecks identification
+    Recommendations and Implementation of the same
+
+Use ShortCuts
+Use Logviewver
+
+Jmeter Running Modes
+   1.Running in StandAlone Mode From GUI
+   2.Running in StandAlone Mode From CLI
+   3.Running in Distrbuted Mode From CLI
+   4.Rnning From ANT
+   5.Running Maven
+   6.Running From Gradle
+   
+Jmeter CI Integration
+   1. Scheduling  From Jenkins 
+   
 
