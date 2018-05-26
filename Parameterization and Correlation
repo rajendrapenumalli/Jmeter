@@ -1,0 +1,22 @@
+
+JMeter functions are special values that can populate fields of any Sampler or other element in a test tree
+${__functionName(var1,var2,var3)}
+Where "__functionName" matches the name of a function. 
+Parentheses surround the parameters sent to the function, for example ${__time(YMD)} The actual parameters vary from function to function. Functions that require no parameters can leave off the parentheses, for example ${__threadNum}.
+If a function parameter contains a comma, then be sure to escape this with "\", otherwise JMeter will treat it as a parameter delimiter. For example:
+${__time(EEE\, d MMM yyyy)}
+Variables are referenced as follows: ${VARIABLE}
+
+Then What we need to Know:
+    1. How to create a user defined variable in the script.
+    2. How to use the created variable inside the script
+    3. How to perform the correlation i.e. fetch the dynamic values from the response
+    4. How to use the correlated variable in the script
+
+
+
+
+Jmeter Variable
+       
+
+Jmeter Properties
