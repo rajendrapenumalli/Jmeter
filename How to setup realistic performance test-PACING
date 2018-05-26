@@ -1,0 +1,11 @@
+What is a real-world performance test
+------------------------------------------------------------
+Think Time - simulate actual user actions with timings/delays 
+
+Pacing - controlled ramp-up and down of virtual users
+      - control timing between iterations
+     - achieve x iterations in y mins/sec
+
+Step 1 - Add Plugin - Stepping Thread Group
+Step 2 - Setup load with required settings
+Step 3 - Run and validate
