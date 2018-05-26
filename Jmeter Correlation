@@ -1,1 +1,8 @@
 
+What is Correlation
+Why is it required
+How to use Regular Expression Extractor
+Step 1 : Create a Test Plan where you want to do dynamic referencing in JMeter
+Step 2 : Add Regular Expression Extractor in the Step from where response value(s) needs to be extracted
+Step 3 : Refer the extracted value (referred by Reference Name) into a subsequent step
+Step 4 : Run and validate
