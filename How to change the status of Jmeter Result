@@ -22,3 +22,8 @@ Full Code Snippet:
     {
       Failure=true;
     }
+
+
+References:
+    https://jmeter.apache.org/api/org/apache/jmeter/samplers/SampleResult.html
+    https://www.blazemeter.com/blog/how-use-jmeter-assertions-3-easy-steps
