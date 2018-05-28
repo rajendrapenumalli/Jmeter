@@ -1,0 +1,24 @@
+How to change the status of Jmeter Result
+  Failure = false bit sets only Beanshell/JSR 223 Groovy Assertion success
+ 
+In order to do so you need to invoke SampleResult.setSuccessful() method and set it to "true" as follows:
+SampleResult.setSuccessful(true);
+
+Full Code Snippet:
+
+    String ErrorValue = "${ExpectedError}";
+
+    if((ErrorValue.equals("ERROR")) && (ResponseCode.equals("412")))
+    {
+      Failure = false;
+      SampleResult.setSuccessful(true);
+    }
+    else if(ErrorValue.equals("NO ERROR") && ResponseCode.equals("200"))
+    {
+      Failure = false;
+      SampleResult.setSuccessful(true);
+    }
+    else
+    {
+      Failure=true;
+    }
