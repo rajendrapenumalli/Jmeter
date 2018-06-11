@@ -1,0 +1,10 @@
+The User Defined Variables element lets you define an initial set of variables, just as in the Test Plan
+Note: All the UDV elements in a test plan – no matter where they are – are processed at the start
+
+Name: It’s the name of the variable which you will use in another place. The syntax to call that variable in JMeter is:
+${VARIABLE_NAME}
+Value: It’s the value corresponding to the variable in the Name column. The whole ${VARIABLE_NAME} 
+will then be replaced by the string in the “Value” column.
+For simplicity, it is suggested that UDVs are placed only at the start of a Thread Group (or perhaps under the Test Plan itself).
+
+References:https://jmetervn.com/2016/12/09/user-defined-variables/
