@@ -1,0 +1,8 @@
+You can use the following inside the "Loop Count" field:
+
+${__groovy(java.util.concurrent.ThreadLocalRandom.current().nextLong(128L),)}
+
+You can access the current loop index (starts at 0) 
+
+via 
+${__jm__Loop Controller__idx} where Loop Controller is the name of your loop.
