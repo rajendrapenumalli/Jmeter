@@ -1,0 +1,13 @@
+Add Jsr 223 Properocessor element to the sample where we need to get headers 
+log.info "------->>>>Headers are: " + prev.getResponseHeaders();
+Create a List headers:
+def headersList= prev.getResponseHeaders()
+def requiredHeader;
+headersList.each{
+   log.info it;
+   if(it.equals("Sec-WebSocket-Accept"){
+        log.info"Required Header: "it
+        requiredHeader=it;
+}
+}
+log.info "required Header:"+requiredHeader
