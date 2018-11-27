@@ -1,0 +1,20 @@
+//Log Generator for Each Sampler
+def threadName= ctx.getThreadGroup().getName();
+def samplerName = sampler.getName();
+def json = new groovy.json.JsonSlurper().parseText(prev.getResponseDataAsString())
+def statusCode=prev.getResponseCode()
+def actualStatus=json.status;
+
+if(actualStatus.equals('success')){
+    log.info "----------------------> RESULT: Test Case "+samplerName+" is PASSED...."
+    log.info ("----------------------------------------------------------------------------------------------------------")
+    assert true
+    
+}
+else{
+    log.info "----------------------> RESULT: Test Case "+samplerName+" is FAILED...."
+    log.info "----------------------> Actual Status code: "+statusCode    
+    log.info "----------------------> Actual Status : "+actualStatus
+    log.info ("----------------------------------------------------------------------------------------------------------")
+    assert false
+}
