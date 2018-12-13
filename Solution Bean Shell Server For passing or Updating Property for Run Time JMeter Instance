@@ -1,0 +1,55 @@
+After Starting Jmeter Test If we wish to change Thread creation Rate or If we want to maniniputlte Rampdown or Rampup peroid of the running project 
+we can use jmeter beanshell server.
+
+Steps to Achieve that
+1. Open jmeter.properties file (it will be located in <jmeter_home>/bin  Folder : /home/xyzuser/apache-jmeter-4.0/bin/jmeter.properties)
+2. Uncomment following 
+       	beanshell.server.port=9000
+3. Uncomment and Update beanshell.server.file path
+        beanshell.server.file=/home/xyzuser/apache-jmeter-4.0/extras/startup.bsh
+ Note: Bean shell server startup script will be available @ <jmeter_home>/extras/startup.bsh"
+ 
+ 
+Modify Following Config:
+		/home/rajendra/apache-jmeter-4.0/bin/jmeter.properties
+
+		#---------------------------------------------------------------------------
+		# BeanShell configuration
+		#---------------------------------------------------------------------------
+
+		# BeanShell Server properties
+		#
+		# Define the port number as non-zero to start the http server on that port
+		beanshell.server.port=9000
+		# The telnet server will be started on the next port
+
+		#
+		# Define the server initialisation file
+		beanshell.server.file=/home/rajendra/apache-jmeter-4.0/extras/startup.bsh
+    
+ 4. Create a bsh folder in <jmeterhome>
+ 5. inside bsh folder,Create a simple bean shell script that accepts value as positional paramater:
+          /home/rajendra/apache-jmeter-4.0/bsh/ updateparameter.bsh 30
+ 
+ updateparameter.bsh File Content:
+ 
+ setprop("throughput", args[0]);
+6. Start Jmeter
+
+7. Now Jmeter Start and You can see the bean shell server listening on 9000 port in jmeter console log
+Sample Console Log:
+2018-12-13 13:05:10,963 INFO o.a.j.JMeter: Starting Beanshell server (9000,/home/xyxuser/apache-jmeter-4.0/extras/startup.bsh)
+2018-12-13 13:05:13,468 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+
+8. Now Usinfg Beanshell Server is running, Using available beanshell client jar(will be available in <jmeter_home>/lib/bshclient.jar) we can send the property and that can update inside the running jmeter instance:
+
+
+xyzuser@xyzlaptop:~/
+$ java -jar /home/xyzuser/apache-jmeter-4.0/lib/bshclient.jar localhost 9000 /home/xyzuser/apache-jmeter-4.0/bsh/updateparameter.bsh 20
+Connecting to BSH server on localhost:9000
+Reading responses from server ...
+BeanShell 2.0b6 - by Pat Niemeyer (pat@pat.net)
+
+9. Now you can observe jmeter property update in running jmeter instance.
+
+10. Look at my sample project that prints that updated property
