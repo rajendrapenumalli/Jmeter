@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+        <stringProp name="cacheKey">true</stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="script">def propertyfromBeashShellServer= props.get(&quot;throughput&quot;);
+log.info &quot;------------&gt;&gt;&gt;propertyfromBeashShellServer: $propertyfromBeashShellServer&quot;</stringProp>
+        <stringProp name="scriptLanguage">groovy</stringProp>
+      </JSR223PreProcessor>
+      <hashTree/>
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
+        <collectionProp name="ultimatethreadgroupdata">
+          <collectionProp name="-2025906856">
+            <stringProp name="100">100</stringProp>
+            <stringProp name="0">0</stringProp>
+            <stringProp name="30">30</stringProp>
+            <stringProp name="60">60</stringProp>
+            <stringProp name="1567">10</stringProp>
+          </collectionProp>
+        </collectionProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+      </kg.apc.jmeter.threads.UltimateThreadGroup>
+      <hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">4</intProp>
+          <stringProp name="throughput">${__P(throughput,)}</stringProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="TestSample-1" enabled="true">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">GET https://xyzcompany.com/login.jsp
+Host: xyzcompany.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Cookie: JSESSIONID=12345678901ASGADGGDFDA1
+</stringProp>
+          <stringProp name="RESPONSE_DATA">HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/;Secure
+X-UA-Compatible: IE=edge
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/
+Content-Type: text/html;charset=UTF-8
+Vary: Accept-Encoding
+Date: Tue, 11 Dec 2018 15:41:42 GMT
+Content-Encoding: gzip
+Connection: Keep-Alive
+
+{
+  &quot;data&quot;: [{
+    &quot;type&quot;: &quot;articles&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;attributes&quot;: {
+      &quot;title&quot;: &quot;JSON:API paints my bikeshed!&quot;,
+      &quot;body&quot;: &quot;The shortest article. Ever.&quot;,
+    },
+    &quot;relationships&quot;: {
+      &quot;author&quot;: {
+        &quot;data&quot;: {&quot;id&quot;: &quot;42&quot;, &quot;type&quot;: &quot;people&quot;}
+      }
+    }
+  }],
+  &quot;included&quot;: [
+    {
+      &quot;type&quot;: &quot;people&quot;,
+      &quot;id&quot;: &quot;42&quot;,
+      &quot;attributes&quot;: {
+        &quot;name&quot;: &quot;John&quot;,
+        &quot;age&quot;: 80,
+        &quot;gender&quot;: &quot;male&quot;
+      }
+    }
+  ]
+}</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree/>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="TestSample-2" enabled="true">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">GET https://xyzcompany.com/login.jsp
+Host: xyzcompany.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Cookie: JSESSIONID=12345678901ASGADGGDFDA1</stringProp>
+          <stringProp name="RESPONSE_DATA">HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/;Secure
+X-UA-Compatible: IE=edge
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/
+Content-Type: text/html;charset=UTF-8
+Vary: Accept-Encoding
+Date: Tue, 11 Dec 2018 15:41:42 GMT
+Content-Encoding: gzip
+Connection: Keep-Alive
+
+{
+  &quot;data&quot;: [{
+    &quot;type&quot;: &quot;articles&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;attributes&quot;: {
+      &quot;title&quot;: &quot;JSON:API paints my bikeshed!&quot;,
+      &quot;body&quot;: &quot;The shortest article. Ever.&quot;,
+    },
+    &quot;relationships&quot;: {
+      &quot;author&quot;: {
+        &quot;data&quot;: {&quot;id&quot;: &quot;42&quot;, &quot;type&quot;: &quot;people&quot;}
+      }
+    }
+  }],
+  &quot;included&quot;: [
+    {
+      &quot;type&quot;: &quot;people&quot;,
+      &quot;id&quot;: &quot;42&quot;,
+      &quot;attributes&quot;: {
+        &quot;name&quot;: &quot;John&quot;,
+        &quot;age&quot;: 80,
+        &quot;gender&quot;: &quot;male&quot;
+      }
+    }
+  ]
+}</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree/>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="TestSample-3" enabled="true">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">GET https://xyzcompany.com/login.jsp
+Host: xyzcompany.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Cookie: JSESSIONID=12345678901ASGADGGDFDA1</stringProp>
+          <stringProp name="RESPONSE_DATA">HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/;Secure
+X-UA-Compatible: IE=edge
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/
+Content-Type: text/html;charset=UTF-8
+Vary: Accept-Encoding
+Date: Tue, 11 Dec 2018 15:41:42 GMT
+Content-Encoding: gzip
+Connection: Keep-Alive
+
+{
+  &quot;data&quot;: [{
+    &quot;type&quot;: &quot;articles&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;attributes&quot;: {
+      &quot;title&quot;: &quot;JSON:API paints my bikeshed!&quot;,
+      &quot;body&quot;: &quot;The shortest article. Ever.&quot;,
+    },
+    &quot;relationships&quot;: {
+      &quot;author&quot;: {
+        &quot;data&quot;: {&quot;id&quot;: &quot;42&quot;, &quot;type&quot;: &quot;people&quot;}
+      }
+    }
+  }],
+  &quot;included&quot;: [
+    {
+      &quot;type&quot;: &quot;people&quot;,
+      &quot;id&quot;: &quot;42&quot;,
+      &quot;attributes&quot;: {
+        &quot;name&quot;: &quot;John&quot;,
+        &quot;age&quot;: 80,
+        &quot;gender&quot;: &quot;male&quot;
+      }
+    }
+  ]
+}</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree/>
+        <kg.apc.jmeter.samplers.DummySampler guiclass="kg.apc.jmeter.samplers.DummySamplerGui" testclass="kg.apc.jmeter.samplers.DummySampler" testname="TestSample-4" enabled="true">
+          <boolProp name="WAITING">true</boolProp>
+          <boolProp name="SUCCESFULL">true</boolProp>
+          <stringProp name="RESPONSE_CODE">200</stringProp>
+          <stringProp name="RESPONSE_MESSAGE">OK</stringProp>
+          <stringProp name="REQUEST_DATA">GET https://xyzcompany.com/login.jsp
+Host: xyzcompany.com
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:63.0) Gecko/20100101 Firefox/63.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Cookie: JSESSIONID=12345678901ASGADGGDFDA1</stringProp>
+          <stringProp name="RESPONSE_DATA">HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/;Secure
+X-UA-Compatible: IE=edge
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache
+Set-Cookie: login_session=&quot;&quot;; Domain=.stg4.livevox.com; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Path=/
+Content-Type: text/html;charset=UTF-8
+Vary: Accept-Encoding
+Date: Tue, 11 Dec 2018 15:41:42 GMT
+Content-Encoding: gzip
+Connection: Keep-Alive
+
+{
+  &quot;data&quot;: [{
+    &quot;type&quot;: &quot;articles&quot;,
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;attributes&quot;: {
+      &quot;title&quot;: &quot;JSON:API paints my bikeshed!&quot;,
+      &quot;body&quot;: &quot;The shortest article. Ever.&quot;,
+    },
+    &quot;relationships&quot;: {
+      &quot;author&quot;: {
+        &quot;data&quot;: {&quot;id&quot;: &quot;42&quot;, &quot;type&quot;: &quot;people&quot;}
+      }
+    }
+  }],
+  &quot;included&quot;: [
+    {
+      &quot;type&quot;: &quot;people&quot;,
+      &quot;id&quot;: &quot;42&quot;,
+      &quot;attributes&quot;: {
+        &quot;name&quot;: &quot;John&quot;,
+        &quot;age&quot;: 80,
+        &quot;gender&quot;: &quot;male&quot;
+      }
+    }
+  ]
+}</stringProp>
+          <stringProp name="RESPONSE_TIME">${__Random(50,500)}</stringProp>
+          <stringProp name="LATENCY">${__Random(1,50)}</stringProp>
+          <stringProp name="CONNECT">${__Random(1,5)}</stringProp>
+        </kg.apc.jmeter.samplers.DummySampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
