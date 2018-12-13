@@ -52,4 +52,6 @@ BeanShell 2.0b6 - by Pat Niemeyer (pat@pat.net)
 
 9. Now you can observe jmeter property update in running jmeter instance.
 
-10. Look at my sample project that prints that updated property
+10. Look at my sample project that prints that updated property:
+ https://github.com/rajendrapenumalli/Jmeter/blob/master/SampleJmeterProjects/BeanShell_Server_Demo_Project.jmx
+ 
