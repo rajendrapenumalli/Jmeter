@@ -1,0 +1,2 @@
+import org.apache.jmeter.services.FileServer;
+def projectPath=FileServer.getFileServer().getBaseDir()
