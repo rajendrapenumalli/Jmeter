@@ -1,1 +1,17 @@
 
+If you want to start Apache JMeter in non-GUI mode, use the following command line options:
+
+-n – non-GUI mode – this specifies JMeter is to run in non-GUI mode
+-t – JMX file – location of the test plan and the name of JMX file that contains the Test Plan
+-l – log file name of JTL file to log sample results to
+Example
+
+jmeter -n -t my_test_plan.jmx -l log.jtl
+ 
+
+Optional
+-j – name of JMeter run log file
+-r – Run the test in the servers specified by the JMeter property “remote_hosts”
+-R – list of remote servers Run the test in the specified remote servers
+-H – proxy server hostname or ip address
+-P – proxy server port
