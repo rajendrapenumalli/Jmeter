@@ -1,0 +1,6 @@
+### Adding Custom Jars to Jmeter
+    1.Put your external jar files in your lib\ext folder
+    2. Restart jmeter
+    3. Import packages in a BeanShell script
+
+then you will able to reference the relevant classes in my script.
